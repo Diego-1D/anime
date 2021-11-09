@@ -6,23 +6,20 @@ import {
     CategoryLink
 } from './styles';
 
+const categories = ['Todos', 'Aventura', 'Fantasia', 'Super poder', 'Ninjas', 'Anti-Heroi', 'Piratas', 'Battle Royale', 'Guerra', 'Drama', 'Espionagem']
+
 const MenuCategories = () => {
     return (
         <Container>
             <Title>Categorias</Title>
             <Wrapper>
-                <CategoryLink>Todos</CategoryLink>
-                <CategoryLink>Aventura</CategoryLink>
-                <CategoryLink>Fantasia</CategoryLink>
-                <CategoryLink>Super poder</CategoryLink>
-                <CategoryLink>Ninjas</CategoryLink>
-                <CategoryLink>Anti-Heroi</CategoryLink>
-                <CategoryLink>Piratas</CategoryLink>
-                <CategoryLink>Battle Royale</CategoryLink>
-                <CategoryLink>Guerra</CategoryLink>
-                <CategoryLink>Drama</CategoryLink>
-                <CategoryLink>Espionagem</CategoryLink>
-
+                {
+                    categories.map((item) => {
+                        return (
+                            <CategoryLink to=''>{item}</CategoryLink>
+                        )
+                    })
+                }
             </Wrapper>
         </Container>
     )

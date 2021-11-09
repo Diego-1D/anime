@@ -1,12 +1,14 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.nav`
-    height: 100%;
+    height: 100vh;
     width: 20%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: #050505;
+    background-color: #050303;
+    position: fixed;
 `;
 
 export const Title = styled.h1`
@@ -22,7 +24,7 @@ export const Wrapper =styled.div`
     padding: 4rem;
 `;
 
-export const CategoryLink = styled.h3`
+export const CategoryLink = styled(Link)`
     font-size: 1.3rem;
     font-weight: 100;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
