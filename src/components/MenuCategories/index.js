@@ -6,9 +6,8 @@ import {
     CategoryLink
 } from './styles';
 
-const categories = ['Todos', 'Aventura', 'Fantasia', 'Super poder', 'Ninjas', 'Anti-Heroi', 'Piratas', 'Battle Royale', 'Guerra', 'Drama', 'Espionagem']
 
-const MenuCategories = () => {
+const MenuCategories = ({categories}) => {
     return (
         <Container>
             <Title>Categorias</Title>
@@ -16,7 +15,7 @@ const MenuCategories = () => {
                 {
                     categories.map((item) => {
                         return (
-                            <CategoryLink to=''>{item}</CategoryLink>
+                            <CategoryLink to='' >{item}</CategoryLink>
                         )
                     })
                 }

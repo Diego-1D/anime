@@ -6,20 +6,12 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [animes, setAnimes] = useState([]);
-<<<<<<< HEAD
+  const [genres, setGenres] = useState([]);
   const [serchAnime, setSearchAnime] = useState('a');
 
   const fetchAnimes = useCallback(async () => {
     try {
       const response = await fetch(`${url}${serchAnime}`);
-=======
-  const [titleAnime, setTitleAnime] = useState([]);
-  const [movieList, setMovieList] = useState([]);
-
-  const fetchAnimes = useCallback(async () => {
-    try {
-      const response = await fetch(`${url}`);
->>>>>>> 3f4029c136b8475a16963affdb77da645bb90ef3
       const dataAnime = await response.json();
       const { data } = dataAnime;
       const { documents } = data;
@@ -29,52 +21,32 @@ const AppProvider = ({ children }) => {
           //pra funcionar como tu precisava, faltava tu puxar o 'titles' de dentro do item tbm
 
           //const { anilist_id, cover_image } = item;
-<<<<<<< HEAD
           const { anilist_id, cover_image, titles, genres } = item;
-=======
-          const { anilist_id, cover_image, titles } = item;
->>>>>>> 3f4029c136b8475a16963affdb77da645bb90ef3
+          setGenres(genres);
           return {
             id: anilist_id,
             image: cover_image,
             //então inseria aqui
             titles: titles,
-<<<<<<< HEAD
-            genres: genres,
           };
         });
-=======
-          };
-        });
-        console.log("animes::", newAnimes);
->>>>>>> 3f4029c136b8475a16963affdb77da645bb90ef3
         setAnimes(newAnimes);
       }
     } catch (error) {
       console.log(error);
     }
-<<<<<<< HEAD
   }, [serchAnime]);
 
   useEffect(() => {
     fetchAnimes();
   }, [serchAnime,fetchAnimes]);
-=======
-  }, []);
-
-  useEffect(() => {
-    fetchAnimes();
-  }, [fetchAnimes]);
->>>>>>> 3f4029c136b8475a16963affdb77da645bb90ef3
 
   return (
     <AppContext.Provider
       value={{
         animes,
-<<<<<<< HEAD
+        genres,
         setSearchAnime
-=======
->>>>>>> 3f4029c136b8475a16963affdb77da645bb90ef3
       }}
     >
       {children}
