@@ -3,12 +3,10 @@ import styled from "styled-components";
 
 export const Container = styled.nav`
     height: 100vh;
-    width: 20%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     background-color: #050303;
-    position: fixed;
 `;
 
 export const Title = styled.h1`

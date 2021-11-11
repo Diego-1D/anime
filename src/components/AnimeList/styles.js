@@ -7,7 +7,6 @@ export const Container = styled.div`
     justify-content: center;
     background-color: #050303;
     padding: 0 3rem;
-    margin-left: 20%;
 `;
 
 export const AnimeArea = styled.div`
