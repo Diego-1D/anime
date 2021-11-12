@@ -13,7 +13,7 @@ export const AnimeArea = styled.div`
     display: grid;
     height: 100%;
     grid-template-columns: repeat(5, 1fr);
-    gap: 2rem;
+    gap: 2rem 1rem;
 `;
 
 export const Message = styled.h2`

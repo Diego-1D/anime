@@ -15,6 +15,10 @@ export const FeaturedHorizontal = styled.div`
   width: inherit;
   height: inherit;
   background: linear-gradient(to right,  #050303 30%, transparent 70%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
 `;
 
 export const Title = styled.h1`
@@ -25,6 +29,8 @@ export const Title = styled.h1`
 
 export const Description = styled.h2`
   font-size: 20px;
+  font-weight: 400;
+  text-align: justify;
   color:#999;
   max-width: 40%;
 `;
@@ -32,13 +38,16 @@ export const Description = styled.h2`
 export const Info = styled.div`
   width: 30%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 130px);
+  text-align: center;
+  margin-top: 1rem;
 `;
 
 export const Year = styled.h3`
   font-size: 18px;
   font-weight: bold;
   color: #FFFF;
+  
 `;
 
 export const Points = styled.h3`

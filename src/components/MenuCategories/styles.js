@@ -4,9 +4,9 @@ import styled from "styled-components";
 export const Container = styled.nav`
     height: 100vh;
     display: flex;
-    justify-content: center;
     flex-direction: column;
     background-color: #050303;
+    padding: 4.5rem 0;
 `;
 
 export const Title = styled.h1`

@@ -7,7 +7,7 @@ export const SearchArea = styled.section`
 export const SearchForm =styled.form`
     width: 40rem;
     margin: 0 auto;
-    padding: 2rem 2.5rem;
+    padding: 2rem;
     text-transform: capitalize;
     border-radius: 0.25rem;
     border-color: pink;
@@ -20,9 +20,9 @@ export const SearchFormControl = styled.div`
 `;
 
 export const SearchTitle = styled.h2`
-        font-size: 1.1rem;
-        color: #FFFFFF;
-        margin-right: 0.5rem;
+    font-size: 1.1rem;
+    color: #FFFFFF;
+    margin-right: 0.5rem;
 `;
 
 export const Input = styled.input`
