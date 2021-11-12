@@ -11,7 +11,7 @@ import {
     Points
 } from './styles';
 
-const url = "https://api.aniapi.com/v1/anime?title=One%20Piece&formats=0,1&status=1&year=1999&season=3&genres=Pirates,War,Cyborg&nsfw=true";
+const url = "https://api.aniapi.com/v1/random/anime/";
 
 const Hero = () => {
 
@@ -22,13 +22,10 @@ const Hero = () => {
             const response = await fetch(`${url}`);
             const dataAnime = await response.json();
             const { data } = dataAnime;
-            const { documents } = data
 
-            if (documents) {
-                const newAnime = documents.map((item) => {
+            if (data) {
+                const newAnime = data.map((item) => {
                     const { anilist_id, banner_image, titles, cover_image,score, descriptions, season_period, season_year} = item;
-                    console.log('Banner: ', banner_image)
-                    console.log('Image: ', cover_image)
                     return {
                         id: anilist_id,
                         titles: titles,
@@ -61,7 +58,7 @@ const Hero = () => {
                             <FeaturedVertical>
                                 <FeaturedHorizontal>
                                     <Title>{item.titles.en}</Title>
-                                    <Description>{item.descriptions.it}</Description>
+                                    <Description>{item.descriptions.en}</Description>
                                     <Info>
                                         <Points>{item.score} Pontos</Points>
                                         <Year>{item.year}</Year>

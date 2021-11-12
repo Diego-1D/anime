@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
     Container,
     Title,
@@ -7,8 +7,10 @@ import {
 } from './styles';
 
 
-const MenuCategories = ({categories}) => {
+const MenuCategories = ({ categories }) => {
+
     return (
+        
         <Container>
             <Title>Categorias</Title>
             <Wrapper>

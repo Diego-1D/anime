@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, AnimeArea, Message } from "./styles";
-import { useGlobalContext } from "../../context/index";
 import SearchAnime from '../SearchAnimes';
 import Anime from "./Anime";
 
