@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router} from 'react-router-dom';
-import FeatureAnime from './components/FeatureAnime';
-import Hero from './components/Hero';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { GlobalStyle } from './globalStyles';
+import Home from './pages/Home';
+import SingleAnime from './pages/SingleAnime';
 
-function App() {  
-
+function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <GlobalStyle />
-      <Hero />
-      <FeatureAnime/>
-    </Router>
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+        <Route path='/singleanime/:idanime' element={<SingleAnime />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
