@@ -11,7 +11,8 @@ import {
     Points
 } from './styles';
 
-const url = "https://api.aniapi.com/v1/random/anime/";
+const url = "https://api.aniapi.com/v1/random/anime/50";
+
 
 const Hero = () => {
 
@@ -24,20 +25,24 @@ const Hero = () => {
             const { data } = dataAnime;
 
             if (data) {
-                const newAnime = data.map((item) => {
-                    const { anilist_id, banner_image, titles, cover_image,score, descriptions, season_period, season_year} = item;
-                    return {
-                        id: anilist_id,
-                        titles: titles,
-                        image: banner_image,
-                        cover: cover_image,
-                        score:score,
-                        descriptions: descriptions,
-                        seasons: season_period,
-                        year: season_year,
+                data.map((item) => {
+                    const { anilist_id, banner_image, titles, cover_image, score, descriptions, season_period, season_year } = item;
+                    if (banner_image && descriptions.en) {
+                        setAnime([
+                            {
+                                id: anilist_id,
+                                titles: titles,
+                                image: banner_image,
+                                cover: cover_image,
+                                score: score,
+                                descriptions: descriptions,
+                                seasons: season_period,
+                                year: season_year,
+                            }]
+                        );
+                        return;
                     }
                 })
-                setAnime(newAnime);
             }
 
         } catch (error) {
