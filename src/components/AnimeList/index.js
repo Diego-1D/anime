@@ -2,11 +2,19 @@ import React from "react";
 import { Container, AnimeArea, Message } from "./styles";
 import SearchAnime from '../SearchAnimes';
 import Anime from "./Anime";
+import { useGlobalContext } from "../../context";
+import Loading from "../Loading";
 
-const AnimeList = ({animes}) => {
-  
-  if (animes.length < 1){
-    return(
+const AnimeList = ({ animes }) => {
+
+  const { loading } = useGlobalContext();
+
+  if (loading) {
+    return <Loading />
+  }
+
+  if (animes.length < 1) {
+    return (
       <Message>Nenhum anime foi encontrado!</Message>
     )
   }
