@@ -6,34 +6,37 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [animes, setAnimes] = useState([]);
-  const [genres, setGenres] = useState([]);
   const [serchAnime, setSearchAnime] = useState('a');
+  const [loading, setLoading] = useState(true);
 
   const fetchAnimes = useCallback(async () => {
+    setLoading(true);
     try {
       const response = await fetch(`${url}${serchAnime}`);
       const dataAnime = await response.json();
       const { data } = dataAnime;
       const { documents } = data;
-
+      
       if (documents) {
         const newAnimes = documents.map((item) => {
-          //pra funcionar como tu precisava, faltava tu puxar o 'titles' de dentro do item tbm
+          
+          const { anilist_id, cover_image, titles, id } = item;
 
-          //const { anilist_id, cover_image } = item;
-          const { anilist_id, cover_image, titles, genres } = item;
-          setGenres(genres);
           return {
             id: anilist_id,
             image: cover_image,
-            //então inseria aqui
             titles: titles,
+            idanime:id,
           };
         });
         setAnimes(newAnimes);
+      }else{
+        setAnimes([]);
       }
+      setLoading(false);
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   }, [serchAnime]);
 
@@ -45,8 +48,8 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         animes,
-        genres,
-        setSearchAnime
+        setSearchAnime,
+        loading
       }}
     >
       {children}
