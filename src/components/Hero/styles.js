@@ -33,6 +33,10 @@ export const Description = styled.h2`
   text-align: justify;
   color:#999;
   max-width: 40%;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 `;
 
 export const Info = styled.div`
