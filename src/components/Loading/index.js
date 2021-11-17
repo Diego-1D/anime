@@ -1,9 +1,12 @@
 import React from 'react';
-import { Load } from './styles';
+import { Area, Load } from './styles';
 
 const Loading = () => {
     return (
-        <Load />
+        <Area>
+            <Load />
+        </Area>
+
     )
 }
 

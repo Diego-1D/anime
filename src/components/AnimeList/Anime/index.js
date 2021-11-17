@@ -15,6 +15,7 @@ const {idanime} = data;
     <Card to={`/singleanime/${idanime}`}>
       <CardImage src={data.image} alt={data.id} />
       <Title>{data.titles.en}</Title>
+      <Title>{data.genres[0]}</Title>
     </Card>
   );
 };

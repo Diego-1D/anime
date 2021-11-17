@@ -8,7 +8,7 @@ export const Card = styled(Link)`
     cursor: pointer;
     transform: scale(0.9);
     transition: all ease 0.2s;
-
+    text-decoration:none;
 
     &:hover{
       transform: scale(1);
@@ -17,6 +17,7 @@ export const Card = styled(Link)`
 
 export const CardImage = styled.img`
     width: 100%;
+    height: 260px;
 
 `;
 

@@ -20,13 +20,13 @@ const AppProvider = ({ children }) => {
       if (documents) {
         const newAnimes = documents.map((item) => {
           
-          const { anilist_id, cover_image, titles, id } = item;
-
+          const { anilist_id, cover_image, titles, id, genres } = item;
           return {
             id: anilist_id,
             image: cover_image,
             titles: titles,
             idanime:id,
+            genres: genres,
           };
         });
         setAnimes(newAnimes);

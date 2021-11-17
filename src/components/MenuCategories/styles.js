@@ -2,11 +2,13 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.nav`
-    height: 100vh;
+    width: 25%;
     display: flex;
     flex-direction: column;
     background-color: #050303;
     padding: 4.5rem 0;
+    top: 0;
+    position: ${({ menuFixed }) => (menuFixed ? 'fixed' : 'relative')};
 `;
 
 export const Title = styled.h1`
@@ -19,13 +21,15 @@ export const Title = styled.h1`
 export const Wrapper =styled.div`
     display: flex;
     flex-direction: column;
-    padding: 4rem;
+    padding: 4rem 3.5rem;
 `;
 
-export const CategoryLink = styled(Link)`
+export const CategoryLink = styled.button`
     font-size: 1.3rem;
     font-weight: 100;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #FFF;
     padding: 0.5rem;
+    text-decoration:none;
+    cursor: pointer;
 `;
