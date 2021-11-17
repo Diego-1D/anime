@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
     Container,
     Title,
@@ -6,18 +6,22 @@ import {
     CategoryLink
 } from './styles';
 
+const MenuCategories = ({ categories, menuFixed, filterAnime }) => {
 
-const MenuCategories = ({ categories }) => {
+
 
     return (
-        
-        <Container>
+        <Container menuFixed={menuFixed}>
             <Title>Categorias</Title>
             <Wrapper>
                 {
-                    categories.map((item) => {
+                    categories.map((item, index) => {
                         return (
-                            <CategoryLink to='' >{item}</CategoryLink>
+                            <CategoryLink
+                                key={index}
+                                onClick={() => filterAnime(item)}
+                            >{item}
+                            </CategoryLink>
                         )
                     })
                 }
