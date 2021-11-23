@@ -1,78 +1,99 @@
-import React, { useState, useEffect } from 'react';
-import AnimeList from '../AnimeList';
-import MenuCategories from '../MenuCategories';
-import Loading from '../Loading';
-import { useGlobalContext } from '../../context';
-import {
-    Container
-} from './styles';
-import { useLocation } from 'react-router';
+import React, { useState, useEffect } from "react";
+import AnimeList from "../AnimeList";
+import MenuCategories from "../MenuCategories";
+import Loading from "../Loading";
+import { useGlobalContext } from "../../context";
+import { Container } from "./styles";
+import { useLocation } from "react-router";
 
-const allCategories = ['Todos', 'Comedy', 'Action', 'Mahou Shoujo', 'Mystery', 'Psychological', 'Thriller', 'Alternate Universe', 'Anti-Hero']
+const allCategories = [
+  "Todos",
+  "Comedy",
+  "Action",
+  "Mahou Shoujo",
+  "Mystery",
+  "Psychological",
+  "Thriller",
+  "Alternate Universe",
+  "Anti-Hero",
+];
 
 function useQuery() {
-    return new URLSearchParams(useLocation().search);
+  return new URLSearchParams(useLocation().search);
 }
 const FeatureAnime = () => {
-    const { loading } = useGlobalContext();
-    let query = useQuery();
-    const { animes } = useGlobalContext();
-    const [categories, setCategories] = useState(allCategories);
-    const [menufixed, setMenuFixed] = useState(false);
-    const [menuItems, setMenuItems] = useState([]);
-    const [genres, setGenres] = useState([]);
+  const { loading } = useGlobalContext();
+  let query = useQuery();
+  const { animes } = useGlobalContext();
+  const [categories, setCategories] = useState(allCategories);
+  const [menufixed, setMenuFixed] = useState(false);
+  const [menuItems, setMenuItems] = useState([]);
+  const [genres, setGenres] = useState([]);
 
-    useEffect(() => {
-        setMenuItems(animes);
-    }, [animes])
+  useEffect(() => {
+    setMenuItems(animes);
+  }, [animes]);
 
-    useEffect(() => {
-        const scrollListener = () => {
-            if (window.scrollY > 438) {
-                setMenuFixed(true);
-            } else {
-                setMenuFixed(false);
-            }
-        }
-        window.addEventListener('scroll', scrollListener);
-        return () => {
-            window.removeEventListener('scroll', scrollListener);
-        }
-    }, [])
+  useEffect(() => {
+    const scrollListener = () => {
+      if (window.scrollY > 438) {
+        setMenuFixed(true);
+      } else {
+        setMenuFixed(false);
+      }
+    };
+    window.addEventListener("scroll", scrollListener);
+    return () => {
+      window.removeEventListener("scroll", scrollListener);
+    };
+  }, []);
 
-    const filterAnime = (a) => {
-        if (a === 'Todos') {
-            setMenuItems(animes);
-            console.log('', animes);
-            return;
-        }
-
-        const newGenres = animes.map((item) => item.genres.filter((item) => item === a));
-        console.log('TESTE II: ', newGenres);
-
+  const filterAnime = (a) => {
+    if (a === "Todos") {
+      setMenuItems(animes);
+      console.log("", animes);
+      return;
     }
 
-    useEffect(() => {
-        let a = query.get('genres');
-        if (a != null) {
-            filterAnime(a);
+    const newGenres = [animes];
+
+    let filtro = [];
+
+    for (let i in newGenres) {
+      const filter = newGenres[i].genres;
+      for (let j in filter) {
+        if (filter[j] === a) {
+          filtro.push(newGenres[i]);
         }
-    }, []);
+      }
+    }
 
-    // if (loading) {
-    //     return <Loading />
-    // }
+    setMenuItems(filtro);
+    // console.log("generos carregados: ", filtro);
+  };
 
+  useEffect(() => {
+    let a = query.get("genres");
+    if (a != null) {
+      filterAnime(a);
+    }
+  }, []);
 
-    return (
-        <Container>
-            <MenuCategories filterAnime={filterAnime} categories={categories} menuFixed={menufixed} />
-            <AnimeList animes={menuItems} menuFixed={menufixed} />
-            {menuItems.length <= 0 &&
-                <Loading />
-            }
-        </Container>
-    )
-}
+  // if (loading) {
+  //     return <Loading />
+  // }
+
+  return (
+    <Container>
+      <MenuCategories
+        filterAnime={filterAnime}
+        categories={categories}
+        menuFixed={menufixed}
+      />
+      <AnimeList animes={menuItems} menuFixed={menufixed} />
+      {menuItems.length <= 0 && <Loading />}
+    </Container>
+  );
+};
 
 export default FeatureAnime;
