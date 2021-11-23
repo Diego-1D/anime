@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import AnimeList from '../AnimeList';
 import MenuCategories from '../MenuCategories';
+import Loading from '../Loading';
 import { useGlobalContext } from '../../context';
-import Loading from "../Loading";
 import {
     Container
 } from './styles';
@@ -14,20 +14,21 @@ function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
 const FeatureAnime = () => {
-    const {loading} = useGlobalContext();
+    const { loading } = useGlobalContext();
     let query = useQuery();
     const { animes } = useGlobalContext();
     const [categories, setCategories] = useState(allCategories);
     const [menufixed, setMenuFixed] = useState(false);
     const [menuItems, setMenuItems] = useState([]);
+    const [genres, setGenres] = useState([]);
 
     useEffect(() => {
-        setMenuItems(animes);        
+        setMenuItems(animes);
     }, [animes])
-    
+
     useEffect(() => {
         const scrollListener = () => {
-            if (window.scrollY > 450) {
+            if (window.scrollY > 438) {
                 setMenuFixed(true);
             } else {
                 setMenuFixed(false);
@@ -42,27 +43,34 @@ const FeatureAnime = () => {
     const filterAnime = (a) => {
         if (a === 'Todos') {
             setMenuItems(animes);
-
+            console.log('', animes);
+            return;
         }
-        const newAnime = animes.filter((item)=> item.genres[2] === a);
-        setMenuItems(newAnime);
+
+        const newGenres = animes.map((item) => item.genres.filter((item) => item === a));
+        console.log('TESTE II: ', newGenres);
+
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         let a = query.get('genres');
-        if (a != null){
+        if (a != null) {
             filterAnime(a);
         }
-    },[]);
+    }, []);
 
-    if (loading) {
-        return <Loading/>
-      }
+    // if (loading) {
+    //     return <Loading />
+    // }
+
 
     return (
         <Container>
             <MenuCategories filterAnime={filterAnime} categories={categories} menuFixed={menufixed} />
             <AnimeList animes={menuItems} menuFixed={menufixed} />
+            {menuItems.length <= 0 &&
+                <Loading />
+            }
         </Container>
     )
 }

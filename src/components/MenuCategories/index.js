@@ -8,8 +8,6 @@ import {
 
 const MenuCategories = ({ categories, menuFixed, filterAnime }) => {
 
-
-
     return (
         <Container menuFixed={menuFixed}>
             <Title>Categorias</Title>

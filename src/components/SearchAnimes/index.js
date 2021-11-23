@@ -30,7 +30,7 @@ const SearchAnime = () => {
                     <SearchTitle>Buscar:</SearchTitle>
                     <Input
                         type='text'
-                        id='name'
+                        id='title'
                         ref={searchValue}
                         onChange={search}
                     />

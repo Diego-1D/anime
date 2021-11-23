@@ -1,24 +1,26 @@
 import styled from 'styled-components';
 
 export const Area = styled.div`
-    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
     background: #000;
     display: flex;
     justify-content: center;
     align-items: center;
+
 `;
 
 export const Load = styled.div`
- background: transparent;
     -webkit-animation: load1 1s infinite ease-in-out;
     animation: load1 1s infinite  ease-in-out;
     width: 1em;
     height: 4em;
     color: #999;
-    text-indent: -9999em;
-    margin: 88px auto;
     margin-top: 20rem;
-    position: relative;
     font-size: 3rem;
     -webkit-transform: translateZ(0);
     -ms-transform: translateZ(0);
@@ -33,7 +35,6 @@ export const Load = styled.div`
         width: 1em;
         height: 4em;
         position: absolute;
-        top:0;
         content: '';
         left: -1.5em;
         -webkit-animation-delay:-0.32s;
@@ -42,13 +43,11 @@ export const Load = styled.div`
 
     }
     &::after{
-        background: transparent;
         -webkit-animation: load1 1s infinite ease-in-out;
         animation: load1 1s infinite  ease-in-out;
         width: 1em;
         height: 4em;
         position: absolute;
-        top:0;
         content: '';
         left: 1.5em;
     }

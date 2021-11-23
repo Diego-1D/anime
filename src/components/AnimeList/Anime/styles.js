@@ -1,14 +1,12 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const Card = styled(Link)`
+export const Card = styled.div`
     width: 175px;
     height: 300px;
     display: inline-block;
     cursor: pointer;
     transform: scale(0.9);
     transition: all ease 0.2s;
-    text-decoration:none;
 
     &:hover{
       transform: scale(1);
