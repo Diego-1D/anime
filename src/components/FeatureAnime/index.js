@@ -11,10 +11,10 @@ const allCategories = [
     'Action',
     'Mahou Shoujo',
     'Mystery',
-    'Psychological', 
-    'Thriller', 
-    'Alternate Universe', 
-    'Anti-Hero', 
+    'Psychological',
+    'Thriller',
+    'Alternate Universe',
+    'Anti-Hero',
     'Espionage']
 
 function useQuery() {
@@ -29,7 +29,7 @@ const FeatureAnime = () => {
 
     useEffect(() => {
         setMenuItems(animes);
-    }, [animes])
+    }, [animes]);
 
     useEffect(() => {
         const scrollListener = () => {
@@ -38,12 +38,12 @@ const FeatureAnime = () => {
             } else {
                 setMenuFixed(false);
             }
-        }
-        window.addEventListener('scroll', scrollListener);
+        };
+        window.addEventListener("scroll", scrollListener);
         return () => {
-            window.removeEventListener('scroll', scrollListener);
-        }
-    }, [])
+            window.removeEventListener("scroll", scrollListener);
+        };
+    }, []);
 
     const filterAnime = (category) => {
         if (category === 'Todos') {
@@ -69,7 +69,9 @@ const FeatureAnime = () => {
         if (category != null) {
             filterAnime(category);
         }
-    }, []);
+
+        setMenuItems(filtro);
+    })
 
     return (
         <Container>
