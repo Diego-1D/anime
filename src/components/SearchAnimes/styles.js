@@ -10,7 +10,10 @@ export const SearchForm =styled.form`
     padding: 2rem;
     text-transform: capitalize;
     border-radius: 0.25rem;
-    border-color: pink;
+    
+    @media screen and (max-width: 960px){
+        width: 27rem;
+    }
 
 `;
 

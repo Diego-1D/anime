@@ -1,16 +1,20 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.nav`
-    width: 25%;
+    width: 23vw;
     height: 100vh;
     top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #050303;
-    padding: 4.5rem 0;
+    padding: 4.5rem;
     position: ${({ menuFixed }) => (menuFixed ? 'fixed' : 'relative')};
+
+    @media screen and (max-width: 900px){
+        display: none;
+      
+    }
 `;
 
 export const Title = styled.h1`
@@ -23,15 +27,25 @@ export const Title = styled.h1`
 export const Wrapper =styled.div`
     display: flex;
     flex-direction: column;
-    padding: 4rem 3.5rem;
+    padding: 1.5rem;
 `;
 
 export const CategoryLink = styled.button`
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 100;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: #050303;
+    background-color: #363636;
     color: #FFF;
-    padding: 0.5rem;
+    width: 12rem;
+    height: 2.5rem;
+    margin: 0.3rem 0;
     cursor: pointer;
 `;
+export const CheckBox = styled.select`
+    display: block;
+`;
+
+export const ItemCheck = styled.option`
+
+`;
+

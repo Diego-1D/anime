@@ -1,33 +1,40 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 75%;
+    width: 77vw;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: #050303;
-    padding: 0 3rem;
-    margin-left: ${({ menuFixed }) => (menuFixed ? '25%': '0')};
+    margin-left: ${({ menuFixed }) => (menuFixed ? '23vw': '0')};
+    @media screen and (max-width: 900px){
+        width: 100%;
+        margin-left: 0;
+    }
 `;
 
 export const AnimeArea = styled.div`
     display: grid;
     height: 100%;
     grid-template-columns: repeat(5, 1fr);
-    gap: 2rem 1rem;
+    gap: 0.5rem;
+
+    @media screen and (max-width: 1200px){
+        grid-template-columns: repeat(4, 1fr);  
+    }
+    @media screen and (max-width: 1000px){
+        grid-template-columns: repeat(3, 1fr);  
+    }
+    @media screen and (max-width: 660px){
+        grid-template-columns: repeat(2, 1fr);  
+    }
 `;
 
 export const Message = styled.h2`
-    font-size: 1.1rem;
-    color: #FFFFFF;
-`;
-
-export const Card = styled.article`
-    width: 160px;
-    height: 300px;
-`;
-
-export const CardImage = styled.img`
-    width: 100%;
-    height: 230px;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    text-align: center;
+    color: #FFF;
 `;

@@ -11,16 +11,23 @@ export const Card = styled.div`
     &:hover{
       transform: scale(1);
     }
+
+    @media screen and (max-width: 900px){
+      width: 185px;
+  }
 `;
 
 export const CardImage = styled.img`
     width: 100%;
-    height: 260px;
-
+    height: 270px;
 `;
 
 export const Title = styled.h2` 
   font-size: 16px;
   letter-spacing: 1px;
   color: #FFF;
+
+  @media screen and (max-width: 900px){
+    font-size: 14px;
+  }
 `;
