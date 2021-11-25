@@ -5,10 +5,10 @@ import Hero from '../../components/Hero';
 const Home = () => {
 
     return (
-        <main>
+       <>
             <Hero />
             <FeatureAnime />
-        </main>
+        </>
     )
 }
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect, useRef} from "react";
 import {
     SearchArea,
     SearchForm,
@@ -9,33 +9,32 @@ import {
 import { useGlobalContext } from '../../context/index';
 
 const SearchAnime = () => {
-    const { setSearchAnime } = useGlobalContext();
-    const searchValue = React.useRef('');
+    const { setSearchAnime} = useGlobalContext();
 
-    React.useEffect(() => {
-        searchValue.current.focus();
-    }, [])
+    const searchValue = useRef('');
 
     const search = () => {
         setSearchAnime(searchValue.current.value);
     }
 
     const handleSubmit = (s) => {
-        s.preventDefault();
+            s.preventDefault();
     }
+    
     return (
         <SearchArea>
             <SearchForm onSubmit={handleSubmit}>
                 <SearchFormControl>
-                    <SearchTitle>Buscar:</SearchTitle>
+                    <SearchTitle>Buscar: </SearchTitle>
                     <Input
                         type='text'
-                        id='title'
+                        id='name'
                         ref={searchValue}
                         onChange={search}
                     />
                 </SearchFormControl>
             </SearchForm>
+
         </SearchArea>
     )
 

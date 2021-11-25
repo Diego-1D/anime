@@ -13,7 +13,6 @@ const Anime = ({ data }) => {
     <Card>
       <CardImage src={data.image} alt={data.id} />
       <Title>{data.titles.en}</Title>
-      <Title>{data.genres[0]}</Title>
     </Card>
   );
 };
