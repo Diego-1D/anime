@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.nav`
     width: 23vw;
-    height: 100vh;
+    height: 100vw;
     top: 0;
     display: flex;
     flex-direction: column;
@@ -11,9 +11,12 @@ export const Container = styled.nav`
     padding: 4.5rem;
     position: ${({ menuFixed }) => (menuFixed ? 'fixed' : 'relative')};
 
+    @media screen and (max-width: 1200px){
+        width: 23vw;
+    }
+
     @media screen and (max-width: 900px){
         display: none;
-      
     }
 `;
 
@@ -24,7 +27,7 @@ export const Title = styled.h1`
     color: #FFF;
 `;
 
-export const Wrapper =styled.div`
+export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
@@ -41,11 +44,3 @@ export const CategoryLink = styled.button`
     margin: 0.3rem 0;
     cursor: pointer;
 `;
-export const CheckBox = styled.select`
-    display: block;
-`;
-
-export const ItemCheck = styled.option`
-
-`;
-

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-    width: 175px;
+    width: 165px;
     height: 300px;
     display: inline-block;
     cursor: pointer;
@@ -11,15 +11,11 @@ export const Card = styled.div`
     &:hover{
       transform: scale(1);
     }
-
-    @media screen and (max-width: 900px){
-      width: 185px;
-  }
 `;
 
 export const CardImage = styled.img`
     width: 100%;
-    height: 270px;
+    height: 250px;
 `;
 
 export const Title = styled.h2` 

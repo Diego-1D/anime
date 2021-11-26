@@ -19,7 +19,6 @@ export const AnimeArea = styled.div`
     display: grid;
     height: 100%;
     grid-template-columns: repeat(5, 1fr);
-    gap: 0.5rem;
 
     @media screen and (max-width: 1200px){
         grid-template-columns: repeat(4, 1fr);  

@@ -25,22 +25,6 @@ const MenuCategories = ({ categories, menuFixed, filterAnime }) => {
                         )
                     })
                 }
-                {/* <CheckBox>
-                    {
-                        categories.map((item, index) => {
-                            return (
-                                <ItemCheck
-                                    selected
-                                    key={index}
-                                    onClick={() => filterAnime(item)}
-                                >
-                                    {item}
-
-                                </ItemCheck>
-                            )
-                        })
-                    }
-                </CheckBox> */}
             </Wrapper>
         </Container>
     )

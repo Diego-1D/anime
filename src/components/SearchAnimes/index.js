@@ -24,7 +24,6 @@ const SearchAnime = () => {
     return (
         <SearchArea>
             <SearchForm onSubmit={handleSubmit}>
-                <SearchFormControl>
                     <SearchTitle>Buscar: </SearchTitle>
                     <Input
                         type='text'
@@ -32,7 +31,6 @@ const SearchAnime = () => {
                         ref={searchValue}
                         onChange={search}
                     />
-                </SearchFormControl>
             </SearchForm>
 
         </SearchArea>

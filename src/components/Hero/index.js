@@ -65,9 +65,9 @@ const Hero = () => {
                                     <Title>{item.titles.en}</Title>
                                     <Description>{item.descriptions.en}</Description>
                                     <Info>
-                                        <Points>{item.score} Pontos</Points>
+                                         <Points>{item.score} Pontos</Points>
                                         <Year>{item.year}</Year>
-                                        <Seasons>{item.seasons} Temporadas</Seasons>
+                                        <Seasons>{item.seasons} Temporada{item.seasons !== 1 ? 's':''}</Seasons>
                                     </Info>
                                 </FeaturedHorizontal>
                             </FeaturedVertical>

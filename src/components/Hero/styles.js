@@ -33,21 +33,20 @@ export const Title = styled.h1`
   color: #FFFFFF;
 
   @media screen and (max-width: 760px){
-    font-size: 40px;
+    font-size: 35px;
   }
 `;
 
 export const Info = styled.div`
-  width: 30vw;
+  width: 25vw;
   display: grid;
   grid-template-columns: repeat(3, 150px);
-  text-align: center;
   margin-top: 1rem;
   font-size: 18px;
 
   @media screen and (max-width: 760px){
-    grid-template-columns: repeat(3, 130px);
-    font-size: 16px;
+    grid-template-columns: repeat(3, 95px);
+    font-size: 12px;
   }
 `;
 
@@ -64,7 +63,7 @@ export const Description = styled.h2`
 
   @media screen and (max-width: 760px){
     font-size: 18px;
-    max-width: 80vw;
+    max-width: 70vw;
   }  
 `;
 
