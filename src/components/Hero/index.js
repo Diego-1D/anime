@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import Loading from '../Loading';
 import {
     Container,
     Title,
@@ -17,8 +18,10 @@ const url = "https://api.aniapi.com/v1/random/anime/50";
 const Hero = () => {
 
     const [anime, setAnime] = useState([]);
+    const [loadingPage, setLoadingPage] = useState(false);
 
     const fetchAnimes = useCallback(async () => {
+        setLoadingPage(true);
         try {
             const response = await fetch(`${url}`);
             const dataAnime = await response.json();
@@ -44,36 +47,50 @@ const Hero = () => {
                     }
                 })
             }
-
         } catch (error) {
             console.log(error);
         }
+        setLoadingPage(false);
     }, []);
 
     useEffect(() => {
         fetchAnimes();
     }, [fetchAnimes]);
 
+    
+
     return (
         <>
             {
-                anime.map((item) => {
-                    return (
-                        <Container style={{ backgroundImage: `url(${item.image})` }}>
-                            <FeaturedVertical>
-                                <FeaturedHorizontal>
-                                    <Title>{item.titles.en}</Title>
-                                    <Description>{item.descriptions.en}</Description>
-                                    <Info>
-                                         <Points>{item.score} Pontos</Points>
-                                        <Year>{item.year}</Year>
-                                        <Seasons>{item.seasons} Temporada{item.seasons !== 1 ? 's':''}</Seasons>
-                                    </Info>
-                                </FeaturedHorizontal>
-                            </FeaturedVertical>
-                        </Container>
-                    )
-                })
+                loadingPage ?
+                    <Loading />
+                    :
+                    anime.map((item) => {
+                        return (
+                            <Container style={{ backgroundImage: `url(${item.image})` }}>
+                                <FeaturedVertical>
+                                    <FeaturedHorizontal>
+                                        <Title>{item.titles.en}</Title>
+                                        <Description>{item.descriptions.en}</Description>
+                                        <Info>
+                                            {
+                                                item.score !== undefined && item.score !== 0 &&
+                                                <Points>{item.score} Pontos</Points>
+                                            }
+                                            {
+                                                item.year !== undefined &&
+                                                <Year>{item.year}</Year>
+                                            }
+                                            {
+                                                item.seasons !== undefined && item.seasons !== 0 &&
+                                                <Seasons>{item.seasons} Temporada{item.seasons !== 1 ? 's' : ''}</Seasons>
+                                            }
+                                        </Info>
+                                    </FeaturedHorizontal>
+                                </FeaturedVertical>
+                            </Container>
+                        )
+                    })
             }
         </>
     )

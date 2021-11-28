@@ -1,38 +1,38 @@
-import React,{useEffect, useRef} from "react";
+import React, { useRef } from "react";
 import {
     SearchArea,
     SearchForm,
-    SearchTitle,
-    SearchFormControl,
+    Button,
     Input
 } from './styles';
 import { useGlobalContext } from '../../context/index';
 
 const SearchAnime = () => {
-    const { setSearchAnime} = useGlobalContext();
+    const { setSearchAnime } = useGlobalContext();
 
     const searchValue = useRef('');
 
-    const search = () => {
-        setSearchAnime(searchValue.current.value);
+    const search = (event) => {
+        if (event.key === 'Enter') {
+
+            setSearchAnime(searchValue.current.value);
+        }
     }
 
     const handleSubmit = (s) => {
-            s.preventDefault();
+        s.preventDefault();
     }
-    
+
     return (
         <SearchArea>
             <SearchForm onSubmit={handleSubmit}>
-                    <SearchTitle>Buscar: </SearchTitle>
-                    <Input
-                        type='text'
-                        id='name'
-                        ref={searchValue}
-                        onChange={search}
-                    />
+                <Input
+                    type='text'
+                    id='name'
+                    ref={searchValue}
+                    onKeyPress={search}
+                />
             </SearchForm>
-
         </SearchArea>
     )
 

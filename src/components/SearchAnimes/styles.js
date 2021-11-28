@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const SearchArea = styled.section`
    display: flex;
+   align-items: center;
 `;
 
 export const SearchForm =styled.form`
@@ -28,4 +29,10 @@ export const Input = styled.input`
     border-radius: 0.25rem;
     padding: 0.5rem;
     font-size: 1.1rem;    
+`;
+
+export const Button = styled.button`
+    width:100px;
+    height:30px;
+    cursor: pointer;
 `;

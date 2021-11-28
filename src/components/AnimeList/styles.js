@@ -3,12 +3,15 @@ import styled from "styled-components";
 export const Container = styled.div`
     width: 77vw;
     height: auto;
+    min-height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #050303;
+    padding: 2rem;
     margin-left: ${({ menuFixed }) => (menuFixed ? '23vw': '0')};
+   
     @media screen and (max-width: 900px){
         width: 100%;
         margin-left: 0;

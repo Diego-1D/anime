@@ -4,8 +4,6 @@ import {
     Title,
     Wrapper,
     CategoryLink,
-    CheckBox,
-    ItemCheck
 } from './styles';
 
 const MenuCategories = ({ categories, menuFixed, filterAnime }) => {

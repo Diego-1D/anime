@@ -22,13 +22,11 @@ function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
 const FeatureAnime = () => {
-    const { loading } = useGlobalContext();
     let query = useQuery();
     const { animes } = useGlobalContext();
     const [categories, setCategories] = useState(allCategories);
     const [menufixed, setMenuFixed] = useState(false);
     const [menuItems, setMenuItems] = useState([]);
-    const [genres, setGenres] = useState([]);
 
     useEffect(() => {
         setMenuItems(animes);
@@ -49,16 +47,15 @@ const FeatureAnime = () => {
     }, []);
 
     const filterAnime = (a) => {
+        setMenuItems([]);
         if (a === "Todos") {
             setMenuItems(animes);
-            console.log("", animes);
             return;
         }
-
         const newGenres = [...animes];
-
+         
         let filtro = [];
-
+       
         for (let i in newGenres) {
             const filter = newGenres[i].genres;
             for (let j in filter) {
@@ -67,12 +64,10 @@ const FeatureAnime = () => {
                 }
             }
         }
-
         setMenuItems(filtro);
-
     };
 
-    useEffect(() => {
+    useEffect(() => {  
         let a = query.get("genres");
         if (a != null) {
             filterAnime(a);
@@ -82,15 +77,8 @@ const FeatureAnime = () => {
 
     return (
         <Container>
-            <MenuCategories
-                filterAnime={filterAnime}
-                categories={categories}
-                menuFixed={menufixed}
-            />
-            <AnimeList
-                animes={menuItems}
-                menuFixed={menufixed}
-            />
+            <MenuCategories filterAnime={filterAnime} categories={categories} menuFixed={menufixed} />
+            <AnimeList animes={menuItems} menuFixed={menufixed}/>
         </Container>
     );
 };

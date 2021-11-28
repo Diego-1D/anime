@@ -7,11 +7,15 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [animes, setAnimes] = useState([]);
   const [searchAnime, setSearchAnime] = useState('a');
+  const [loading, setLoading] = useState(false);
 
   const fetchAnimes = useCallback(async () => {
+    setLoading(true);
+    setAnimes([]);
     try {
       const response = await fetch(`${url}${searchAnime}`);
       const dataAnime = await response.json();
+      setLoading(false);
       const { data } = dataAnime;
       const { documents } = data;
 
@@ -30,7 +34,7 @@ const AppProvider = ({ children }) => {
       } else {
         setAnimes([]);
       }
-     
+
     } catch (error) {
       console.log(error);
     }
@@ -44,6 +48,7 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         animes,
+        loading,
         setSearchAnime,
       }}
     >

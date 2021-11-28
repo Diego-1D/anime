@@ -7,7 +7,7 @@ export const Container = styled.section`
   background-repeat: no-repeat;
 
   @media screen and (max-width: 760px){
-    height: 58vh;
+    height: auto;
   }
 `;
 
@@ -41,11 +41,13 @@ export const Info = styled.div`
   width: 25vw;
   display: grid;
   grid-template-columns: repeat(3, 150px);
+  font-size: 16px;
+  text-align: center;
   margin-top: 1rem;
-  font-size: 18px;
+  gap: 1rem;
 
   @media screen and (max-width: 760px){
-    grid-template-columns: repeat(3, 95px);
+    grid-template-columns: repeat(3, 120px);
     font-size: 12px;
   }
 `;
@@ -55,7 +57,7 @@ export const Description = styled.h2`
   font-weight: 400;
   text-align: justify;
   color:#999;
-  max-width: 40vw;
+  max-width: 50vw;
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
@@ -69,14 +71,32 @@ export const Description = styled.h2`
 
 export const Year = styled.h3`
   font-weight: bold;
-  color: #FFFF;
+  color: #FFFFFF;
+  border: solid 1px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:0.2rem ;
 `;
 
 export const Points = styled.h3`
   color: #46d369;
+  border: solid 1px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:0.2rem ;
 `;
 
 export const Seasons = styled.h3`
   font-weight: bold;
-  color: #FFFF
+  color: #FFFFFF;
+  border: solid 1px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:0.2rem ;
 `;
