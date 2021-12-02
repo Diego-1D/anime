@@ -14,7 +14,6 @@ import {
 
 const url = "https://api.aniapi.com/v1/random/anime/50";
 
-
 const Hero = () => {
 
     const [anime, setAnime] = useState([]);
@@ -71,7 +70,7 @@ const Hero = () => {
                                 <FeaturedVertical>
                                     <FeaturedHorizontal>
                                         <Title>{item.titles.en}</Title>
-                                        <Description>{item.descriptions.en}</Description>
+                                        <Description dangerouslySetInnerHTML={{__html: item.descriptions.en}}/>
                                         <Info>
                                             {
                                                 item.score !== undefined && item.score !== 0 &&
