@@ -25,30 +25,15 @@ const FeatureAnime = () => {
     let query = useQuery();
     const { animes } = useGlobalContext();
     const [categories, setCategories] = useState(allCategories);
-    const [menufixed, setMenuFixed] = useState(false);
-    const [menuItems, setMenuItems] = useState([]);
+    const [menuItems, setMenuItems] = useState([]);    
 
     useEffect(() => {
         setMenuItems(animes);
     }, [animes]);
-
-    useEffect(() => {
-        const scrollListener = () => {
-            if (window.scrollY > 438) {
-                setMenuFixed(true);
-            } else {
-                setMenuFixed(false);
-            }
-        };
-        window.addEventListener("scroll", scrollListener);
-        return () => {
-            window.removeEventListener("scroll", scrollListener);
-        };
-    }, []);
-
-    const filterAnime = (a) => {
+    
+    const filterAnime = (category) => {
         setMenuItems([]);
-        if (a === "Todos") {
+        if (category === "Todos") {
             setMenuItems(animes);
             return;
         }
@@ -59,7 +44,7 @@ const FeatureAnime = () => {
         for (let i in newGenres) {
             const filter = newGenres[i].genres;
             for (let j in filter) {
-                if (filter[j] === a) {
+                if (filter[j] === category) {
                     filtro.push(newGenres[i]);
                 }
             }
@@ -68,17 +53,17 @@ const FeatureAnime = () => {
     };
 
     useEffect(() => {  
-        let a = query.get("genres");
-        if (a != null) {
-            filterAnime(a);
+        let category = query.get("genres");
+        if (category != null) {
+            filterAnime(category);
         }
     }, []);
 
 
     return (
         <Container>
-            <MenuCategories filterAnime={filterAnime} categories={categories} menuFixed={menufixed} />
-            <AnimeList animes={menuItems} menuFixed={menufixed}/>
+            <MenuCategories filterAnime={filterAnime} categories={categories}/>
+            <AnimeList animes={menuItems} filterAnime={filterAnime} categories={categories}/>
         </Container>
     );
 };

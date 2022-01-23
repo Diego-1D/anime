@@ -1,38 +1,32 @@
 import styled from "styled-components";
 
 export const SearchArea = styled.section`
-   display: flex;
-   align-items: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
 `;
 
 export const SearchForm =styled.form`
+    width: 100%;
     margin: 0 auto;
     padding: 2rem;
     text-transform: capitalize;
     border-radius: 0.25rem;
     display: flex;
     align-items: center;
-`;
-
-
-export const SearchTitle = styled.h2`
-    font-size: 1.1rem;
-    color: #FFFFFF;
-    margin-right: 0.5rem;
+    justify-content: center;
 `;
 
 export const Input = styled.input`
-    width: 40vw;
-    border: 1px;
+    width: 60%;
+    border: 1px solid #000;
     color: #FFFFFF;
-    background: #363636;
+    background-color: #363636;
     border-radius: 0.25rem;
     padding: 0.5rem;
-    font-size: 1.1rem;    
-`;
+    font-size: 1.1rem;   
 
-export const Button = styled.button`
-    width:100px;
-    height:30px;
-    cursor: pointer;
+    @media(max-width: 669px){
+        width: 100%;
+    }
 `;

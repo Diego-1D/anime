@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Container,
     Title,
     Wrapper,
+    Select,
+    Option,
     CategoryLink,
 } from './styles';
 
-const MenuCategories = ({ categories, menuFixed, filterAnime }) => {
+const MenuCategories = ({ categories, filterAnime }) => {
 
     return (
-        <Container menuFixed={menuFixed}>
+        <Container>
             <Title>Categorias</Title>
             <Wrapper>
                 {

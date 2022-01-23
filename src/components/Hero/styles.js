@@ -47,8 +47,9 @@ export const Info = styled.div`
   gap: 1rem;
 
   @media screen and (max-width: 760px){
-    grid-template-columns: repeat(3, 120px);
-    font-size: 12px;
+    grid-template-columns: repeat(3, 100px);
+    font-size: 11px;
+    gap: 0  .5rem;
   }
 `;
 
@@ -56,7 +57,7 @@ export const Description = styled.h2`
   font-size: 20px;
   font-weight: 400;
   text-align: justify;
-  color:#999;
+  color: #999;
   max-width: 50vw;
   display: -webkit-box;
   -webkit-line-clamp: 5;

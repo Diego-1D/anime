@@ -7,6 +7,7 @@ export const Card = styled.div`
     cursor: pointer;
     transform: scale(0.9);
     transition: all ease 0.2s;
+    margin-bottom: 1.5rem;
 
     &:hover{
       transform: scale(1);

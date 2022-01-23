@@ -1,19 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.nav`
-    width: 23vw;
-    height: 100vw;
+    flex: 0.1;
+    height: 100vh;
     top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #050303;
-    padding: 4.5rem;
-    position: ${({ menuFixed }) => (menuFixed ? 'fixed' : 'relative')};
-
-    @media screen and (max-width: 1200px){
-        width: 23vw;
-    }
+    padding: 2.8rem;
+    position: sticky;
 
     @media screen and (max-width: 900px){
         display: none;

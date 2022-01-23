@@ -14,13 +14,12 @@ const SearchAnime = () => {
 
     const search = (event) => {
         if (event.key === 'Enter') {
-
             setSearchAnime(searchValue.current.value);
         }
     }
 
-    const handleSubmit = (s) => {
-        s.preventDefault();
+    const handleSubmit = (search) => {
+        search.preventDefault();
     }
 
     return (
@@ -29,6 +28,7 @@ const SearchAnime = () => {
                 <Input
                     type='text'
                     id='name'
+                    placeholder="Pesquisar anime"
                     ref={searchValue}
                     onKeyPress={search}
                 />
