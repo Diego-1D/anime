@@ -1,6 +1,6 @@
 <h1 align="center">
     <img src='https://raw.githubusercontent.com/Diego-1D/anime/main/src/git/image.png' width="900"/>
-    Anime
+    <p>Anime</p>
 </h1>
 
 ### 💻 Projeto
