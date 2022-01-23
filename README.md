@@ -16,8 +16,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - Context Api
 
 ### ✔️ Projeto disponível no link abaixo:
-
 [Anime](https://diego-1d.github.io/anime/)
 
 ### Autor
-Feito com 💚 por Diego Fernandes 👋🏽 Entre em contato!
+Feito com 💚 por Diego Fernandes 👋 [Entre em contato](https://www.linkedin.com/in/diego-fernandes-dev)
